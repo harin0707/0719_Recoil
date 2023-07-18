@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
 
+export const Layout = styled.div`
+background-color: purple;
+padding-top: 100px;
+`
+
 
 export const Wrapper = styled.div`
 margin: 0;
@@ -9,17 +14,13 @@ min-height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+background-color: white;
 `
 
 
 export const Title = styled.div`
 font-size: 30px;
-margin: 20px;
-`
-
-export const LinkBtn = styled(Link)`
-all: unset;
-cursor: pointer;
 margin: 20px;
 `
 

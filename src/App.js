@@ -1,17 +1,22 @@
 import React from 'react'
 import  {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Main from './pages/Main.js';
-import Student from './pages/Student.js';
-import Result from './pages/Result.js';
+import Home from './pages/Home.js';
+
+import {ThemeContext} from './context/context.js';
+import { theme } from './theme/theme.js';
+
 
 const App = () => {
+
   return (
     <BrowserRouter>
+
+    <ThemeContext.Provider value={theme}>
       <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/student/:studentNum" element={<Student />}></Route>
-        <Route path="/result" element={<Result />}></Route>
+            <Route path="/" element={<Home />}></Route>
       </Routes>
+
+    </ThemeContext.Provider>
     </BrowserRouter>
   )
 }
