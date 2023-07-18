@@ -1,5 +1,10 @@
 import {atom} from 'recoil';
 
+export const isSubmitedAtom = atom({
+    key: 'isSubmited',
+    default: false
+})
+
 export const userNameAtom = atom({
     key : 'userName',
     default: '홍길동'
@@ -8,9 +13,4 @@ export const userNameAtom = atom({
 export const emailAtom = atom({
     key:'email',
     default:'',
-})
-
-export const ownerAtom = atom({
-    key : 'owner',
-    default: 'dog'
 })

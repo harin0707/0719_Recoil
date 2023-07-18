@@ -1,6 +1,10 @@
 import React,{useContext, useState} from 'react'
 import styled from 'styled-components';
 import { ThemeContext } from '../../context/context';
+import { Button } from './common';
+
+import { useRecoilValue } from 'recoil';
+import { isSubmitedAtom, userNameAtom, emailAtom } from '../../recoil/atom';
 
 const Layout= ({children}) => {
     const context = useContext(ThemeContext);
@@ -21,6 +25,10 @@ const Layout= ({children}) => {
         console.log(mode);
     }
 
+    const isSubmited = useRecoilValue(isSubmitedAtom);
+    const userName = useRecoilValue(userNameAtom);
+    const email = useRecoilValue(emailAtom);
+
     return (
     <>
     <ThemeContext.Provider value={mode}>
@@ -35,7 +43,9 @@ const Layout= ({children}) => {
     
         <div>{children}</div>
 
-        <div>누구누구의 공간 연락은 여기 이메일로</div>
+        <Footer mode={mode.main}>
+            {!isSubmited===true ? '':`|| ${userName}의 공간 || 이메일 주소${email} ||`}
+        </Footer>
 
         </Wrapper>
 
@@ -58,20 +68,23 @@ align-items: center;
 justify-content: space-between;
 `
 
-const Button = styled.button`
-all: unset;
-background-color: ${props=>props.mode};
-color: white;
-padding: 10px;
-border-radius: 24px;
-`
-
 const Header = styled.div`
 display: flex;
 height: 100px;
 width: 100%;
-background-color: ${props=>props.mode};
-
 justify-content: center;
 align-items: center;
+
+background-color: ${props=>props.mode};
+`
+
+const Footer = styled.div`
+display: flex;
+height: 50px;
+width: 100%;
+justify-content: center;
+align-items: center;
+color: white;
+
+background-color: ${props=>props.mode};
 `

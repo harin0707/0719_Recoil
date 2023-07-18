@@ -2,33 +2,26 @@ import React from 'react'
 import { styled } from 'styled-components';
 
 import {useRecoilState} from 'recoil';
-import { userNameAtom, emailAtom, ownerAtom } from '../../recoil/atom';
+import { userNameAtom, emailAtom } from '../../recoil/atom';
 
-const Form = ({title, type}) => {
+const Form = ({title, type, inputType}) => {
     const [userName, setUserName] = useRecoilState(userNameAtom); 
     const [email, setEmail] = useRecoilState(emailAtom); 
-    const [owner, setOwner] = useRecoilState(ownerAtom); 
 
     const onChange = (e) =>{
+        const input = e.target.value;
         if (type==='name'){
-            setUserName({name:e.target.value});
-        }
-        else if (type==='email'){
-            setEmail({nickname:e.target.value});
+            setUserName(input);
         }
         else{
-            setOwner({type:e.target.value});
+            setEmail(input);
         }
-
-        console.log(userName);
-        console.log(email);
-        console.log(owner);
     }
 
     return (
         <Wrapper>
             <div>{title}</div>
-            <Input onChange={onChange}></Input>
+            <input type={inputType} onChange={onChange}></input>
         </Wrapper>
 )
 }
@@ -36,7 +29,8 @@ const Form = ({title, type}) => {
 export default Form
 
 const Wrapper = styled.div`
-`
+display: flex;
+flex-direction: column;
 
-const Input = styled.input`
+margin-bottom: 20px;
 `
