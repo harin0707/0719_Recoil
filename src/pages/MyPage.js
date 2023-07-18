@@ -4,8 +4,7 @@ import { Title } from '../components/layout/common';
 import { isSubmitedAtom, emailAtom , userNameAtom} from '../recoil/atom';
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/context';
-import styled from 'styled-components';
-import { Button } from '../components/layout/common';
+import { Button, Wrapper } from '../components/layout/common';
 
 const MyPage = () => {
     const mode = useContext(ThemeContext);
@@ -34,12 +33,5 @@ const MyPage = () => {
 }
 
 export default MyPage
-
-const Wrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`
 
 

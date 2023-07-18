@@ -23,10 +23,10 @@ const FormSection = () => {
 
     return (
     <>
-        <Form type='name' title='이름'/>
-        <Form type='email' title='이메일'/>
+        <Form inputType='name' type='text' title='이름'/>
+        <Form inputType='email' type='email' title='이메일'/>
 
-        <Button mode={mode.button} onClick={handleClick}>버튼</Button>
+        <Button mode={mode.button} onClick={handleClick}>제출</Button>
     </>
     )
 }
