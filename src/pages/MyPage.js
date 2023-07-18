@@ -1,8 +1,7 @@
 import React,{useContext} from 'react'
-import { userNameAtom } from '../recoil/atom'
 import {useRecoilValue, useResetRecoilState} from 'recoil';
 import { Title } from '../components/layout/common';
-import { isSubmitedAtom } from '../recoil/atom';
+import { isSubmitedAtom, emailAtom , userNameAtom} from '../recoil/atom';
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/context';
 import styled from 'styled-components';
@@ -11,11 +10,15 @@ import { Button } from '../components/layout/common';
 const MyPage = () => {
     const mode = useContext(ThemeContext);
     const user = useRecoilValue(userNameAtom);
-    const reset = useResetRecoilState(isSubmitedAtom);
+    const resetSubmit = useResetRecoilState(isSubmitedAtom);
+    const resetName = useResetRecoilState(userNameAtom);
+    const resetEmail = useResetRecoilState(emailAtom);
     const navigate = useNavigate();
 
     const handleReset=()=>{
-        reset();
+        resetSubmit();
+        resetName();
+        resetEmail();
         navigate('/');
     }
     

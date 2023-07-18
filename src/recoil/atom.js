@@ -12,5 +12,5 @@ export const userNameAtom = atom({
 
 export const emailAtom = atom({
     key:'email',
-    default:'',
+    default:'hongildong@gmail.com',
 })

@@ -44,7 +44,7 @@ const Layout= ({children}) => {
         <div>{children}</div>
 
         <Footer mode={mode.main}>
-            {!isSubmited===true ? '':`|| ${userName}의 공간 || 이메일 주소${email} ||`}
+            {!isSubmited===true ? '':`|| ${userName}의 공간 || 이메일 주소: ${email} ||`}
         </Footer>
 
         </Wrapper>
